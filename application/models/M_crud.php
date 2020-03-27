@@ -70,6 +70,13 @@ class M_crud extends CI_Model {
 		$this->db->where($id);
 		$this->db->delete('tb_member');
 	}
+
+// Function Order
+	public function order($data,$data2)
+	{
+		$this->db->insert('tb_transaksi', $data);
+		$this->db->insert('tb_detail_transaksi', $data2);
+	}
 }
 
 /* End of file M_input.php */

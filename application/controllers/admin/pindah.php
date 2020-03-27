@@ -85,6 +85,8 @@ class pindah extends CI_Controller{
 // Function Order
 	public function order()
 	{
+		$data['getid'] = $this->M_getdata->getidtransaksi();
+		$data['getdetail'] = $this->M_getdata->getiddetail();
 		$data['getoutlet'] = $this->M_getdata->getoutlet()->result();
 		$data['kodeinvoice'] = $this->M_getdata->kodeinvoice();
 		$data['getproduk'] = $this->M_getdata->getproduk()->result();

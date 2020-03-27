@@ -238,15 +238,26 @@
             <!-- STATISTIC-->
             <!-- MAIN CONTENT-->
             <div class="container-fluid">
-            <form action="<!-- <?php echo base_url() ?>index.php/admin/crud/order -->" method="post" enctype="multipart/form-data">
+            <form action="<?php echo base_url() ?>index.php/admin/crud/addorder" method="post" enctype="multipart/form-data">
                 <div class="row">
                 <div class="col-lg-5" style="padding: 10px;">
                 <div class="card">
                     <div class="card-body card-block">
                             <div class="form-group">
+                                <div class="input-group">
+                                    <input type="text" id="id_detail_transaksi" name="id_detail_transaksi" value="<?php echo $getdetail ?>" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <i style="font-family: serif; font-style: unset;, font-size: 20;">Id Transaksi</i>
+                                <div class="input-group">
+                                    <input type="text" id="id_transaksi" name="id_transaksi" value="<?php echo $getid ?>" class="form-control" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <i style="font-family: serif; font-style: unset;, font-size: 20;">Kode Invoice</i>
                                 <div class="input-group">
-                                    <input type="text" id="id_user" name="id_user" value="<?php echo $kodeinvoice ?>" class="form-control" readonly>
+                                    <input type="text" id="kodeinvoice" name="kodeinvoice" value="<?php echo $kodeinvoice ?>" class="form-control" readonly>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -326,7 +337,7 @@
                         <div class="form-group">
                             <i style="font-family: serif; font-style: unset;, font-size: 20;">Tanggal Diterima</i>
                             <div class="input-group">
-                                <input type="text" id="tanggal" name="tanggal" value="<?php echo date('D, d M Y') ?>" class="form-control" readonly>
+                                <input type="date" id="tanggal" name="tanggal" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
@@ -351,6 +362,18 @@
                             <i style="font-family: serif; font-style: unset;">Biaya Pajak</i>
                             <div class="input-group">
                                 <input type="text" name="pajak" value="5000" id="pajak" class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <i style="font-family: serif; font-style: unset;">Biaya Tambahan</i>
+                            <div class="input-group">
+                                <input type="text" name="tambahan" placeholder="Biaya Tambahan" id="tambahan" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <i style="font-family: serif; font-style: unset;">Keterangan</i>
+                            <div class="input-group">
+                                <input type="text" name="ket" placeholder="Keterangan" id="ket" class="form-control">
                             </div>
                         </div>
                         <div class="form-actions form-group" align="right">

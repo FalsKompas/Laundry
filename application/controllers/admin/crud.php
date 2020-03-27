@@ -33,8 +33,7 @@ class Crud extends CI_Controller {
 		
 	}
 
-	//Update one item
-	public function update( $id = NULL )
+	public function update()
 	{
 		$id_outlet = $_POST['id_outlet'];
 		$nama = $_POST['nama'];
@@ -50,7 +49,6 @@ class Crud extends CI_Controller {
 		redirect('admin/pindah/outlet','refresh');
 	}
 
-	//Delete one item
 	public function hapus_outlet($id)
 	{
 		$where = array('id_outlet' => $id);
@@ -59,7 +57,6 @@ class Crud extends CI_Controller {
 	}
 
 // Function Produk
-	// Add a new item
 	public function addproduk()
 	{
 		$id = $_POST['id_paket'];
@@ -79,7 +76,6 @@ class Crud extends CI_Controller {
 		redirect('admin/pindah/Produkcucian','refresh');
 	}
 	
-	//Update one item
 	public function update_produk()
 	{
 		$id = $_POST['id_paket'];
@@ -227,6 +223,50 @@ class Crud extends CI_Controller {
 		$id = array('id_member' => $id);
 		$this->M_crud->hapus_member($id);
 		redirect('admin/pindah/member','refresh');
+	}
+
+// Function Order
+	public function addorder()
+	{
+		$id_transaksi = $_POST['id_transaksi'];
+		$id_outlet = $_POST['outlet'];
+		$kodeinvoice = $_POST['kodeinvoice'];
+		$id_member = $_POST['id_member'];
+		$tanggal = $_POST['tanggal'];
+		$batas = $_POST['batas'];
+		$tambahan = $_POST['tambahan'];
+		$diskon = $_POST['diskon'];
+		$pajak = $_POST['pajak'];
+		$id_user = $_POST['id_user'];
+		$id_paket = $_POST['paket'];
+		$qty = $_POST['qty'];
+		$ket = $_POST['ket'];
+		$id_detail_transaksi = $_POST['id_detail_transaksi'];
+
+		$data = array(
+			'id_transaksi' => $id_transaksi,
+			'id_outlet' => $id_outlet,
+			'kode_invoice' => $kodeinvoice,
+			'id_member' => $id_member,
+			'tgl' => $tanggal,
+			'batas_waktu' => $batas,
+			'biaya_tambahan' => $tambahan,
+			'diskon' => $diskon,
+			'pajak' => $pajak,
+			'status' => 'Baru',
+			'dibayar' => 'Belum Dibayar',
+			'id_user' => $id_user
+		);
+		$data2 = array(
+			'id_detail_transaksi' => $id_detail_transaksi,
+			'id_transaksi' => $id_transaksi,
+			'id_paket' => $id_paket,
+			'qty' => $qty,
+			'keterangan' => $ket,
+		);
+
+		$this->M_crud->order($data,$data2);
+		redirect('admin/pindah/order','refresh');
 	}
 }
 

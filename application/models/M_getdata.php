@@ -175,4 +175,40 @@ class M_getdata extends CI_Model {
 			  $kodetampil = "KI".date('dmY').$batas;  //format kode
 			  return $kodetampil;  
 	}
+	public function getidtransaksi()
+	{
+		  $this->db->select('RIGHT(tb_transaksi.id_transaksi,2) as id_transaksi', FALSE);
+		  $this->db->order_by('id_transaksi','DESC');    
+		  $this->db->limit(1);    
+		  $query = $this->db->get('tb_transaksi');  //cek dulu apakah ada sudah ada kode di tabel.    
+		  if($query->num_rows() <> 0){      
+			   //cek kode jika telah tersedia    
+			   $data = $query->row();      
+			   $kode = intval($data->id_transaksi) + 1; 
+		  }
+		  else{      
+			   $kode = 1;  //cek jika kode belum terdapat pada table
+		  } 
+			  $batas = str_pad($kode, 3, "0", STR_PAD_LEFT);    
+			  $kodetampil = date('dmY').$batas;  //format kode
+			  return $kodetampil;  
+	}
+	public function getiddetail()
+	{
+		  $this->db->select('RIGHT(tb_detail_transaksi.id_detail_transaksi,2) as id_detail_transaksi', FALSE);
+		  $this->db->order_by('id_detail_transaksi','DESC');    
+		  $this->db->limit(1);    
+		  $query = $this->db->get('tb_detail_transaksi');  //cek dulu apakah ada sudah ada kode di tabel.    
+		  if($query->num_rows() <> 0){      
+			   //cek kode jika telah tersedia    
+			   $data = $query->row();      
+			   $kode = intval($data->id_detail_transaksi) + 1; 
+		  }
+		  else{      
+			   $kode = 1;  //cek jika kode belum terdapat pada table
+		  } 
+			  $batas = str_pad($kode, 3, "0", STR_PAD_LEFT);    
+			  $kodetampil = date('dmY').$batas;  //format kode
+			  return $kodetampil;  
+	}
 }
