@@ -245,7 +245,7 @@
                     <div class="card-body card-block">
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input type="text" id="id_detail_transaksi" name="id_detail_transaksi" value="<?php echo $getdetail ?>" class="form-control" >
+                                    <input type="text" id="id_detail_transaksi" name="id_detail_transaksi" value="<?php echo $getdetail ?>" class="form-control" hidden>
                                 </div>
                             </div>
                             <div class="form-group">
